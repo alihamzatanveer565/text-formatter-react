@@ -14,6 +14,7 @@ const Main = () => {
         setText('');
     }
     const [text, setText] = useState('');
+    const wordCount = text.trim().split(' ').filter(Boolean).length;
   return (
     <>
         <div className="container mt-5">
@@ -29,7 +30,7 @@ const Main = () => {
         </div>
         <div className="container my-3">
             <h2>Your Text Summary</h2>
-            <p>{text.trim() ? text.trim().split(' ').length : 0} words and {text.length} chararcters</p>
+            <p>{wordCount} {wordCount < 2 ? 'Word' : 'Words' } and {text.length} {text.length < 2 ? 'Character' : 'Characters'}</p>
             <h2>Preview</h2>
             <p>{text}</p>
         </div>
